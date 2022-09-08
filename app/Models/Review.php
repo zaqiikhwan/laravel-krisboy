@@ -63,4 +63,16 @@ class Review extends Model implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function getImageAttribute()
+    {
+        $file = $this->getMedia('image')->last();
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+            $file->preview   = $file->getUrl('preview');
+        }
+
+        return $file;
+    }
 }

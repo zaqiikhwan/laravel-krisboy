@@ -95,6 +95,16 @@
                             {!! $review->kesimpulan !!}
                         </td>
                     </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td>
+                            @if($review->image)
+                                <a href="{{ $review->image->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $review->image->getUrl('thumb') }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">
